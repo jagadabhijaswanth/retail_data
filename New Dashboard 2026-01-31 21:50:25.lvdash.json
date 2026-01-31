@@ -1,0 +1,190 @@
+{
+  "datasets": [
+    {
+      "name": "d90e93eb",
+      "displayName": "gold_online_retail",
+      "queryLines": [
+        "SELECT * FROM retail_data.gold.\r\n",
+        "\r\n"
+      ],
+      "catalog": "retail_data",
+      "schema": "gold"
+    },
+    {
+      "name": "1d58b4c5",
+      "displayName": "gold_online_retail",
+      "queryLines": [
+        "SELECT * FROM retail_data.gold.gold_online_retail"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "name": "039d45b7",
+      "displayName": "Untitled page",
+      "pageType": "PAGE_TYPE_CANVAS"
+    },
+    {
+      "name": "e26c4d25",
+      "displayName": "Global Filters",
+      "layout": [
+        {
+          "widget": {
+            "name": "97fd37b6",
+            "spec": {
+              "version": 2,
+              "widgetType": "filter-single-select",
+              "encodings": {},
+              "frame": {
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 1,
+            "height": 2
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_GLOBAL_FILTERS"
+    },
+    {
+      "name": "8e161d67",
+      "displayName": "Untitled page 1",
+      "layout": [
+        {
+          "widget": {
+            "name": "359fdf48",
+            "spec": {
+              "version": 2,
+              "widgetType": "filter-single-select",
+              "encodings": {},
+              "frame": {
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 1,
+            "y": 0,
+            "width": 2,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "total-spend-by-customer",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "1d58b4c5",
+                  "fields": [
+                    {
+                      "name": "CustomerID",
+                      "expression": "`CustomerID`"
+                    },
+                    {
+                      "name": "sum(total_spend)",
+                      "expression": "SUM(`total_spend`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "CustomerID",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "y": {
+                  "fieldName": "sum(total_spend)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "frame": {
+                "title": "Total Spend by Customer",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 1,
+            "width": 3,
+            "height": 9
+          }
+        },
+        {
+          "widget": {
+            "name": "total-orders-by-customer",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "1d58b4c5",
+                  "fields": [
+                    {
+                      "name": "CustomerID",
+                      "expression": "`CustomerID`"
+                    },
+                    {
+                      "name": "sum(total_orders)",
+                      "expression": "SUM(`total_orders`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "CustomerID",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "y": {
+                  "fieldName": "sum(total_orders)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "frame": {
+                "title": "Total Orders by Customer",
+                "showTitle": true
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 1,
+            "width": 3,
+            "height": 9
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    },
+    "applyModeEnabled": false
+  }
+}
